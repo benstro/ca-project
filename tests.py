@@ -49,6 +49,6 @@ class TestCase(unittest.TestCase):
         self.assertEqual(number_of_posts,1)
 
 if __name__ == '__main__':
-    runner = xmlrunner.XMLTestRUnner(output='test-reports')
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
     unittest.main(testRunner=runner)
     unittest.main()
