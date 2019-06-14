@@ -5,7 +5,7 @@ import requests
 # Authentication for user filing issue (must have read/write access to
 # repository to add issue to)
 USERNAME = 'benstro'
-PASSWORD = os.environ['export GITHUB_PASSWORD=yourSuperSecretPassword']
+PASSWORD = os.environ['GITHUB_PASSWORD']
 
 # The repository to add this issue to
 REPO_OWNER = 'benstro'
