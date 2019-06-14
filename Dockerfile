@@ -1,16 +1,22 @@
 #Dockerfile for CoDeChan
 
-FROM ubuntu:14.04
+  # The base image
+  FROM ubuntu:latest
 
-WORKDIR /home/ubuntu/ca-project
-RUN apt-get update -y
+  # Install python and pip
+  RUN apt-get update -y
+  RUN apt-get install -y python-pip python-dev build-essential
 
-RUN sudo apt-get install python pip \
-sudo pip install requests
+  # Install Python modules needed by the Python app
+  COPY requirements.txt /usr/src/app/
+  RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
+  RUN pip install requests
 
-RUN pip install -r requirements.txt
+  # Copy files required for the app to run
+  COPY app.py /usr/src/app/
 
-CMD ['python', 'run.py']
+  # Declare the port number the container should expose
+  EXPOSE 5000
 
-
-
+  # Run the application
+  CMD ["python", "/usr/src/app/run.py"]
