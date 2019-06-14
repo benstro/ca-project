@@ -6,7 +6,6 @@ pipeline {
     }
     
     stages {
-       
         stage('Tests') {
             steps{
                 sh 'python tests.py'
@@ -14,7 +13,7 @@ pipeline {
         }
         stage('Results'){
             steps{
-                echo 'Vis resultater her'
+                junit 'test-reports/*.xml'
             }
         }
     }
