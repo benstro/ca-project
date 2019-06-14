@@ -9,7 +9,8 @@
 
   # Install Python modules needed by the Python app
   COPY requirements.txt /usr/src/app/
-  RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
+  WORKDIR /usr/src/app
+  RUN pip install --no-cache-dir -r requirements.txt
   RUN pip install requests
 
   # Copy files required for the app to run
@@ -19,4 +20,4 @@
   EXPOSE 5000
 
   # Run the application
-  CMD ["python", "/usr/src/app/run.py"]
+  CMD ["python", "run.py"]
