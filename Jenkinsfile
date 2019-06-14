@@ -1,17 +1,16 @@
 pipeline {
-    agent any
+    agent{
+        docker {image 'python:latest'}
+    }
     
     stages {
         stage('Build') {
-            steps{
-                sh './gradlew clean test jar'
-                
-            }
+            
             
         }
         stage('Tests') {
             steps{
-                python 'tests.py'
+                sh 'python tests.py'
             }
         }
         stage('Results'){
