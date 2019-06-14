@@ -16,7 +16,7 @@ pipeline {
         
         stage('Deploy') {
             steps{
-                sh 'docker container stop codechan'
+                
                 sh 'docker container run -p 80:5000 codechan' 
             }
         }
