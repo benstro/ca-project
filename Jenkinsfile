@@ -1,18 +1,10 @@
 pipeline {
-    agent {
-        dockerfile {
-            filename 'Dockerfile'
-            dir 'build'
-            label 'my-defined-label'
-
-        }
-    }
+    agent any
     
     stages {
         stage('Build') {
             steps{
                 sh './gradlew clean build'
-            
             }
             
         }
