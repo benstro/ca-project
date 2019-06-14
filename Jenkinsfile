@@ -1,6 +1,8 @@
 pipeline {
     agent{
-        docker {image 'python:latest'}
+        dockerfile {
+            filename 'Dockerfile'
+        }
     }
     
     stages {
