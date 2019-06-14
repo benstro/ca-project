@@ -13,11 +13,6 @@ pipeline {
                 sh 'docker container run codechan python /usr/src/app/tests.py'
             }
         }
-        stage('Results'){
-            steps{
-                junit 'test-reports/*.xml'
-            }
-        }
         
         stage('Deploy') {
             steps{
