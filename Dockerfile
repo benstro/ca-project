@@ -14,7 +14,7 @@
   RUN pip install requests
 
   # Copy files required for the app to run
-  COPY app.py /usr/src/app/
+  COPY . /usr/src/app/
 
   # Declare the port number the container should expose
   EXPOSE 5000
